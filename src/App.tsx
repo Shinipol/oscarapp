@@ -113,38 +113,6 @@ export default function App() {
     alumnoSeleccionado.fechaInicio,
     alumnoSeleccionado.pagos.modalidad
   );
-  const exportarPDF = () => {
-    const doc = new jsPDF();
-  
-    doc.setFontSize(16);
-    doc.text(`Historial de ${alumnoSeleccionado.nombre}`, 14, 20);
-  
-    // Tabla de Clases
-    autoTable(doc, {
-      startY: 30,
-      head: [["Fecha", "Asistencia", "Tarea realizada", "Tarea", "Observación"]],
-      body: alumnoSeleccionado.clases.map((c) => [
-        c.fecha,
-        c.asistencia,
-        c.tareaRealizada,
-        c.tarea,
-        c.observacion,
-      ]),
-      theme: "striped",
-      headStyles: { fillColor: [0, 123, 255] },
-    });
-  
-    // Tabla de Pagos
-    autoTable(doc, {
-      startY: doc.lastAutoTable.finalY + 10,
-      head: [["N°", "Estado"]],
-      body: alumnoSeleccionado.pagos.estado.map((p, i) => [i + 1, p]),
-      theme: "grid",
-      headStyles: { fillColor: [40, 167, 69] },
-    });
-  
-    doc.save(`Historial-${alumnoSeleccionado.nombre}.pdf`);
-  };
   
 
   /* ---------- Persistencia ---------- */
