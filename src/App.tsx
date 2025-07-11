@@ -134,12 +134,12 @@ export default function App() {
   const agregarAlumno = () => {
     if (!nuevoAlumno.nombre || !nuevoAlumno.fechaInicio) return;
 
-    const estadosPago =
-      nuevoAlumno.modalidad === "Mensual"
-        ? ["PENDIENTE", "PENDIENTE", "PENDIENTE", "PENDIENTE"]
-        : nuevoAlumno.modalidad === "Bimestral"
-        ? ["PENDIENTE", "PENDIENTE"]
-        : ["PENDIENTE"];
+    const estadosPago: ("PENDIENTE" | "PAGADO")[] =
+  nuevoAlumno.modalidad === "Mensual"
+    ? ["PENDIENTE", "PENDIENTE", "PENDIENTE", "PENDIENTE"]
+    : nuevoAlumno.modalidad === "Bimestral"
+    ? ["PENDIENTE", "PENDIENTE"]
+    : ["PENDIENTE"];
 
     const nuevo: Alumno = {
       nombre: nuevoAlumno.nombre,
