@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import jsPDF from "jspdf";
-import autoTable from "jspdf-autotable";
+//import jsPDF from "jspdf";
+//import autoTable from "jspdf-autotable";
 
 
 /* ---------- Tipos (opcionales pero útiles) ---------- */
@@ -60,7 +60,7 @@ const alumnosIniciales: Alumno[] = [
     ],
     pagos: {
       modalidad: "Mensual",
-      estado: ["PENDIENTE", "PENDIENTE", "PENDIENTE", "PENDIENTE"],
+      estado: ["PENDIENTE", "PENDIENTE", "PENDIENTE", "PENDIENTE"] as ("PENDIENTE" | "PAGADO")[],
     },
   },
 ];
